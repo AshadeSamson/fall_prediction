@@ -3,12 +3,11 @@ import pandas as pd
 import numpy as np
 import pickle
 import streamlit as st
-from sklearn.model_selection import cross_val_score, KFold
-from sklearn.ensemble import RandomForestClassifier 
 
 
 
-file_path = "random_forest.pkl"
+
+file_path = "svm_classifier.pkl"
 classifier = None 
 
 
@@ -58,10 +57,8 @@ def main():
     if st.button("Predict"):
         prediction = predict_fall(distance,pressure,hrv,sugarLevel,sp02,accelerometer)
         result = "Fall" if prediction[0] == 1 else "No Fall"
-    st.success('The output is {}'.format(result))
-    if st.button("About"):
-        st.text("Lets LEarn")
-        st.text("Built with Streamlit")
+    st.success('The Decision is "{}"'.format(result))
+
 
 if __name__=='__main__':
     main()

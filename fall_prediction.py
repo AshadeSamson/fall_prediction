@@ -29,7 +29,7 @@ def predict_fall(distance,pressure,hrv,sugarlevel,spO2,accelerometer):
    
     prediction = classifier.predict([[distance,pressure,hrv,sugarlevel,spO2,accelerometer]])
     print(prediction)
-    return prediction
+    return prediction[0]
 
 
 
@@ -58,9 +58,9 @@ def main():
     result=""
     if st.button("Predict"):
         prediction = predict_fall(distance,pressure,hrv,sugarLevel,sp02,accelerometer)
-        if prediction[0] == 0:
+        if prediction == 0:
             result = "No fall"
-        elif prediction[0] == 1:
+        elif prediction == 1:
             result = "fair fall"
         else:
             result = "Fall"    

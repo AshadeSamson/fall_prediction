@@ -21,6 +21,7 @@ if os.path.exists(file_path):
         st.error(f"Error loading the model: {e}")
 else:
     st.error(f"Model file not found: {file_path}")
+    st.stop()
 
 
 

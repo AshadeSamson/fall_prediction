@@ -58,7 +58,13 @@ def main():
     result=""
     if st.button("Predict"):
         prediction = predict_fall(distance,pressure,hrv,sugarLevel,sp02,accelerometer)
-    st.success('The Decision is "{}"'.format(prediction[0]))
+        if prediction[0] == 0:
+            result = "No fall"
+        elif prediction[0] == 1:
+            result = "fair fall"
+        else:
+            result = "Fall"    
+    st.success('The Decision is "{}"'.format(result))
 
 
 if __name__=='__main__':

@@ -1,13 +1,6 @@
 import os
-import pandas as pd
-import numpy as np
 import pickle
 import streamlit as st
-
-
-
-
-
 
 file_path = "svm_classifier.pkl"
 classifier = None 
@@ -44,17 +37,17 @@ def main():
     </div>
     """
     st.markdown(html_temp,unsafe_allow_html=True)
-    _distance = st.text_input("Distance", 0)
+    _distance = st.number_input("Distance", 0)
     distance = float(_distance)
-    _pressure = st.text_input("Pressure", 0)
+    _pressure = st.selectbox("Pressure", options=[0, 1, 2])
     pressure = float(_pressure)
-    _hrv = st.text_input("HRV Level", 0)
+    _hrv = st.number_input("HRV Level", 0)
     hrv = float(_hrv)
-    _sugarLevel = st.text_input("Sugar Level", 0)
+    _sugarLevel = st.number_input("Sugar Level", 0)
     sugarLevel = float(_sugarLevel)
-    _sp02 = st.text_input("spO2", 0)
+    _sp02 = st.number_input("spO2", 0)
     sp02 = float(_sp02)
-    _accelerometer = st.text_input("Accelerometer Reading", 0)
+    _accelerometer = st.selectbox("Accelerometer Reading", options=[0, 1])
     accelerometer = float(_accelerometer)
     result=""
     if st.button("Predict"):
